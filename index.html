@@ -502,18 +502,40 @@
         }
         
         @media (max-width: 768px) {
+            /* Base mobile adjustments */
+            html {
+                font-size: 16px;
+            }
+            
+            /* Hero section */
             .hero-section {
                 flex-direction: column;
+                padding: 1rem 0 2rem;
             }
             
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
             }
             
             .cta-buttons {
                 flex-direction: column;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
             }
             
+            .btn-primary, .btn-secondary {
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            /* Navigation */
             .nav-links {
                 display: none;
             }
@@ -528,6 +550,83 @@
             
             .navbar .btn-primary {
                 display: none;
+            }
+            
+            /* Features grid */
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Testimonials */
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Sections padding */
+            .features-section, 
+            .how-it-works, 
+            .testimonials, 
+            .pricing-section, 
+            .faq-section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            /* FAQ */
+            .faq-question {
+                font-size: 1.1rem;
+            }
+            
+            /* Footer */
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            /* Video embeds */
+            iframe, video {
+                max-width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+            }
+            
+            /* Limited offer banner */
+            .limited-offer {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+
+        /* Additional small screen adjustments */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 1.25rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .pricing-card {
+                padding: 1.5rem;
             }
         }
         
