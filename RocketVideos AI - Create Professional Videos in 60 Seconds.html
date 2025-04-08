@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RocketVideos AI - Create Professional Videos in 60 Seconds</title>
+    <meta name="description" content="Transform text into studio-quality videos in just 60 seconds with RocketVideos AI. No technical skills required.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e90ff;
+            --secondary-color: #0f172a;
+            --accent-color: #38bdf8;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to bottom, #3b82f6, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.5);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn-secondary:hover {
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        
+        .logo .rocket-icon {
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-item {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-item:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--secondary-color);
+            flex-direction: column;
+            padding: 5rem 2rem 2rem;
+            z-index: 100;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu .nav-item {
+            padding: 1rem 0;
+            font-size: 1.25rem;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-section {
+            display: flex;
+            align-items: center;
+            padding: 2rem 0 4rem;
+            gap: 2rem;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-video {
+            flex: 1;
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .tag {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .limited-offer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: rgba(59, 130, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .limited-offer .clock-icon {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .features-section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .how-it-works {
+            padding: 5rem 0;
+            background-color: rgba(15, 23, 42, 0.7);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonials {
+            padding: 5rem 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .pricing-section {
+            padding: 5rem 0;
+            background-color: rgba(15, 23, 42, 0.7);
+        }
+        
+        .pricing-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 2.5rem;
+            max-width: 30rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 1.5rem 0;
+        }
+        
+        .price-currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+            margin-right: 0.25rem;
+        }
+        
+        .price-period {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .price-features {
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .price-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-check {
+            color: #10b981;
+        }
+        
+        .faq-section {
+            padding: 5rem 0;
+        }
+        
+        .faq-container {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-answer {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .footer {
+            padding: 3rem 0;
+            background-color: rgba(15, 23, 42, 0.9);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--text-color);
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .payment-icon {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .payment-icon:hover {
+            color: var(--text-color);
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        .purchase-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(15, 23, 42, 0.9);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 300px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .navbar .btn-primary {
+                display: none;
+            }
+        }
+        
+        /* Animation for payment method icons */
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% {
+                transform: scale(1.05);
+                filter: brightness(1.2);
+            }
+            100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+        }
+        
+        .payment-icon {
+            animation: pulse-glow 3s infinite;
+        }
+        
+        .payment-icon:nth-child(1) { animation-delay: 0s; }
+        .payment-icon:nth-child(2) { animation-delay: 0.5s; }
+        .payment-icon:nth-child(3) { animation-delay: 1s; }
+        .payment-icon:nth-child(4) { animation-delay: 1.5s; }
+        .payment-icon:nth-child(5) { animation-delay: 2s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-rocket rocket-icon"></i>
+            <span>RocketVideos AI</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features" class="nav-item">Features</a>
+            <a href="#how-it-works" class="nav-item">How It Works</a>
+            <a href="#pricing" class="nav-item">Pricing</a>
+            <a href="#faq" class="nav-item">FAQ</a>
+        </div>
+        <a href="https://jvz6.com/c/3326799/416541" class="btn-primary nav-cta">Get Instant Access</a>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#features" class="nav-item">Features</a>
+        <a href="#how-it-works" class="nav-item">How It Works</a>
+        <a href="#pricing" class="nav-item">Pricing</a>
+        <a href="#faq" class="nav-item">FAQ</a>
+        <a href="https://jvz6.com/c/3326799/416541" class="btn-primary" style="margin-top: 2rem;">Get Instant Access</a>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section container">
+        <div class="hero-content">
+            <div class="tag">AI-POWERED VIDEO CREATION</div>
+            <h1 class="hero-title">Transform Text Into <span class="gradient-text">Studio-Quality Videos</span> in Just 60 Seconds</h1>
+            <p class="subtitle">3-Click AI technology that turns any text, blog post, or URL into engaging videos with natural voiceovers — no technical skills required.</p>
+            
+            <div class="limited-offer">
+                <i class="fas fa-clock clock-icon"></i>
+                <div>
+                    <strong>Limited Time Offer:</strong> Get access to RocketVideos AI for a one-time payment of just $37. Price increases soon!
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="https://jvz6.com/c/3326799/416541" class="btn-primary">Get Instant Access Now</a>
+                <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+            </div>
+        </div>
+        
+        <div class="hero-video">
+            <iframe id="mainVideo" width="100%" height="315" src="https://www.youtube.com/embed/enzT6w2laRg?autoplay=0&mute=1&controls=1&rel=0" title="RocketVideos AI Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+    <!-- Purchase Notification -->
+    <div class="purchase-notification">
+        <i class="fas fa-check-circle" style="color: var(--primary-color);"></i>
+        <div>
+            <strong>Laura Schmidt, AT</strong> just purchased RocketVideos AI
+            <p style="font-size: 0.8rem; margin-top: 0.25rem; color: var(--text-secondary);">17 minutes ago</p>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <section id="features" class="features-section container">
+        <h2 class="section-title">Powerful AI Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-magic feature-icon"></i>
+                <h3 class="feature-title">AI Storyboard Creator</h3>
+                <p>Instantly transform plain text into professional video storyboards with a single click.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-user-astronaut feature-icon"></i>
+                <h3 class="feature-title">Character Design Engine</h3>
+                <p>Create unique, customizable characters that remain consistent throughout your video.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-film feature-icon"></i>
+                <h3 class="feature-title">Animation Generator</h3>
+                <p>Generate smooth, dynamic animations with our advanced AI technology.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-microphone-alt feature-icon"></i>
+                <h3 class="feature-title">300+ Voice Actors</h3>
+                <p>Choose from over 300 human-sounding voice actors for natural, engaging narration.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-edit feature-icon"></i>
+                <h3 class="feature-title">Full Timeline Editor</h3>
+                <p>Fine-tune your videos with our comprehensive, user-friendly timeline editor.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-paint-brush feature-icon"></i>
+                <h3 class="feature-title">Multiple Art Styles</h3>
+                <p>Select from various art styles including cartoon, 3D, realistic, and more.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Demo Videos Section -->
+    <section class="container" style="padding: 3rem 0;">
+        <h2 class="section-title">See RocketVideos AI in Action</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            <div>
+                <video id="demoVideo1" controls playsinline webkit-playsinline class="hover-video" style="width: 100%; border-radius: 0.5rem;">
+                    <source src="https://assets.rocketvideos.pro/sales/previews/8.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3 style="margin-top: 1rem; font-weight: 600;">Professional Explainer Videos</h3>
+                <p style="color: var(--text-secondary);">Create engaging explainer videos for your products or services.</p>
+            </div>
+            <div>
+                <video id="demoVideo2" controls playsinline webkit-playsinline class="hover-video" style="width: 100%; border-radius: 0.5rem;">
+                    <source src="https://assets.rocketvideos.pro/sales/previews/5.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3 style="margin-top: 1rem; font-weight: 600;">Animated Characters</h3>
+                <p style="color: var(--text-secondary);">Create consistent, engaging characters for your video content.</p>
+            </div>
+            <div>
+                <video id="demoVideo3" controls playsinline webkit-playsinline class="hover-video" style="width: 100%; border-radius: 0.5rem;">
+                    <source src="https://assets.rocketvideos.pro/sales/previews/10.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h3 style="margin-top: 1rem; font-weight: 600;">Diverse Art Styles</h3>
+                <p style="color: var(--text-secondary);">Choose from multiple art styles to match your brand's aesthetic.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://jvz6.com/c/3326799/416541" class="btn-primary">See More RocketVideos AI Creations</a>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Enter Your Text</h3>
+                    <p>Simply paste your script, blog post, or URL, or let our AI generate content for you.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Customize Your Video</h3>
+                    <p>Choose your preferred art style, characters, and voiceover from 300+ options.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Generate & Export</h3>
+                    <p>Click generate and get your professional video in under 60 seconds. Export in HD quality.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://jvz6.com/c/3326799/416541" class="btn-primary">Get Started Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials container">
+        <h2 class="section-title">What Our Users Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-content">"RocketVideos AI has completely transformed my content strategy. I've created over 50 professional videos in just one week!"</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Michael Thompson</h4>
+                        <p>Digital Marketing Consultant</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-content">"As someone with zero video editing skills, this tool is a game-changer. I'm now creating professional videos for my business in minutes!"</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Small Business Owner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-content">"The quality of videos I can create with RocketVideos AI is mind-blowing. My clients are impressed, and my workload has been cut in half."</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>David Rodriguez</h4>
+                        <p>Freelance Content Creator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Affordable Pricing</h2>
+            <div class="pricing-card">
+                <h3 style="font-size: 1.5rem; font-weight: 700;">Limited Time Offer</h3>
+                <div class="price">
+                    <span class="price-currency">$</span>37
+                </div>
+                <p>One-time payment for lifetime access</p>
+                <div class="price-features">
+                    <div class="price-feature">
+                        <i class="fas fa-check feature-check"></i>
+                        <span>Unlimited Video Creation</span>
+                    </div>
+                    <div class="price-feature">
+                        <i class="fas fa-check feature-check"></i>
+                        <span>300+ Voice Actors</span>
+                    </div>
+                    <div class="price-feature">
+                        <i class="fas fa-check feature-check"></i>
+                        <span>All Art Styles Included</span>
+                    </div>
+                    <div class="price-feature">
+                        <i class="fas fa-check feature-check"></i>
+                        <span>Full Timeline Editor</span>
+                    </div>
+                    <div class="price-feature">
+                        <i class="fas fa-check feature-check"></i>
+                        <span>HD Export</span>
+                    </div>
+                    <div class="price-feature">
+                        <i class="fas fa-check feature-check"></i>
+                        <span>Commercial License</span>
+                    </div>
+                </div>
+                <a href="https://jvz6.com/c/3326799/416541" class="btn-primary pulse-animation">Get Instant Access</a>
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <p>Secured payment with 30-day money-back guarantee</p>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa payment-icon"></i>
+                        <i class="fab fa-cc-mastercard payment-icon"></i>
+                        <i class="fab fa-paypal payment-icon"></i>
+                        <i class="fab fa-cc-amex payment-icon"></i>
+                        <i class="fas fa-credit-card payment-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need any technical skills to use RocketVideos AI?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No technical skills required! RocketVideos AI is designed to be user-friendly, allowing anyone to create professional videos with just a few clicks. The intuitive interface guides you through the entire process.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is there a limit to how many videos I can create?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>There are no limits! With your one-time payment, you can create unlimited videos for your personal or business needs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I use the videos for commercial purposes?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Your purchase comes with a commercial license, allowing you to use the videos for client work, marketing, sales, and more.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What formats can I export my videos in?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>RocketVideos AI supports multiple export formats including MP4, MOV, and GIF. You can also export in various resolutions up to HD quality.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is there a money-back guarantee?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer a 30-day money-back guarantee. If you're not completely satisfied with RocketVideos AI, simply contact our support team for a full refund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA Section -->
+    <section style="padding: 5rem 0; text-align: center; background-color: rgba(15, 23, 42, 0.7);">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">Ready to Create Amazing Videos?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-secondary); font-size: 1.25rem;">Join thousands of creators who are already using RocketVideos AI to produce professional videos in just 60 seconds.</p>
+            <a href="https://jvz6.com/c/3326799/416541" class="btn-primary pulse-animation" style="font-size: 1.25rem; padding: 1rem 2rem;">Get Instant Access Now</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">Support</a>
+            </div>
+            <p class="copyright">© 2025 RocketVideos AI. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu .nav-item');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // FAQ toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQs
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                    const icon = faq.querySelector('.fa-chevron-down, .fa-chevron-up');
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                });
+                
+                // Open current FAQ if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    const icon = item.querySelector('.fa-chevron-down');
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+        
+        // Autoplay main YouTube video when scrolled into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // YouTube iframe
+                    if (entry.target.id === 'mainVideo') {
+                        if (entry.isIntersecting) {
+                            // Enable autoplay by recreating the iframe with autoplay=1
+                            const currentSrc = entry.target.src;
+                            if (!currentSrc.includes('autoplay=1')) {
+                                entry.target.src = currentSrc.replace('autoplay=0', 'autoplay=1');
+                            }
+                        } else {
+                            // Pause when out of view
+                            const currentSrc = entry.target.src;
+                            if (currentSrc.includes('autoplay=1')) {
+                                entry.target.src = currentSrc.replace('autoplay=1', 'autoplay=0');
+                            }
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const mainVideo = document.getElementById('mainVideo');
+            if (mainVideo) observer.observe(mainVideo);
+        });
+        
+        // Hover-to-play functionality for demo videos
+        const hoverVideos = document.querySelectorAll('.hover-video');
+        
+        hoverVideos.forEach(video => {
+            video.addEventListener('mouseenter', () => {
+                video.play();
+            });
+            
+            video.addEventListener('mouseleave', () => {
+                video.pause();
+            });
+            
+            // Touch device support
+            video.addEventListener('touchstart', () => {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        });
+        
+        // Purchase notification randomizer
+        function showRandomNotification() {
+            const names = [
+                "Laura Schmidt, AT",
+                "John Davis, US",
+                "Maria Garcia, ES",
+                "Thomas Weber, DE",
+                "Sophie Wilson, UK",
+                "Michael Chen, SG",
+                "Emma Johnson, CA",
+                "Robert Kim, KR"
+            ];
+            
+            const times = [
+                "2 minutes ago",
+                "5 minutes ago",
+                "8 minutes ago",
+                "12 minutes ago",
+                "17 minutes ago",
+                "23 minutes ago",
+                "31 minutes ago",
+                "45 minutes ago"
+            ];
+            
+            const notification = document.querySelector('.purchase-notification');
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomTime = times[Math.floor(Math.random() * times.length)];
+            
+            notification.querySelector('strong').textContent = randomName;
+            notification.querySelector('p').textContent = randomTime;
+            
+            notification.style.display = 'flex';
+            notification.style.animation = 'none';
+            void notification.offsetWidth; // Trigger reflow
+            notification.style.animation = 'fadeIn 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                notification.style.animation = 'none';
+                void notification.offsetWidth; // Trigger reflow
+                notification.style.animation = 'fadeIn 0.5s ease-in-out reverse';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 500);
+            }, 5000);
+        }
+        
+        // Show notifications periodically
+        setTimeout(showRandomNotification, 5000);
+        setInterval(() => {
+            setTimeout(showRandomNotification, Math.random() * 15000);
+        }, 30000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
