@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RocketVideos AI - Create Professional Videos in 60 Seconds</title>
     <meta name="description" content="Transform text into studio-quality videos in just 60 seconds with RocketVideos AI. No technical skills required.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
@@ -22,6 +22,8 @@
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
         }
         
         .gradient-text {
@@ -67,6 +69,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
+            width: 100%;
+            overflow-x: hidden;
         }
         
         .navbar {
@@ -149,6 +153,22 @@
             align-items: center;
             padding: 2rem 0 4rem;
             gap: 2rem;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 1rem 0 2rem;
+                gap: 1.5rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            .hero-video {
+                margin-top: 1.5rem;
+            }
         }
         
         .hero-content {
@@ -225,6 +245,21 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                gap: 1.5rem;
+            }
+            .feature-card {
+                padding: 1.5rem;
+            }
+            .feature-title {
+                font-size: 1.1rem;
+            }
+            .feature-icon {
+                font-size: 1.5rem;
+            }
+        }
         
         .feature-card {
             background-color: rgba(255, 255, 255, 0.05);
@@ -296,6 +331,18 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
+
+        @media (max-width: 768px) {
+            .testimonial-grid {
+                gap: 1.5rem;
+            }
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+            .testimonial-content {
+                font-size: 0.95rem;
+            }
+        }
         
         .testimonial-card {
             background-color: rgba(255, 255, 255, 0.05);
@@ -343,6 +390,18 @@
             max-width: 30rem;
             margin: 0 auto;
             text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card {
+                padding: 1.5rem;
+            }
+            .price {
+                font-size: 2.5rem;
+            }
+            .price-features {
+                margin: 1.5rem 0;
+            }
         }
         
         .price {
@@ -399,6 +458,17 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
+            padding: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .faq-question {
+                font-size: 1.1rem;
+                padding: 0.75rem 0;
+            }
+            .faq-answer {
+                font-size: 0.95rem;
+            }
         }
         
         .faq-answer {
