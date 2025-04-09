@@ -1376,31 +1376,41 @@
             });
         });
         
-        // Autoplay main YouTube video when scrolled into view
+        // Autoplay videos when scrolled into view
         document.addEventListener('DOMContentLoaded', function() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // YouTube iframe
-                    if (entry.target.id === 'mainVideo') {
-                        if (entry.isIntersecting) {
-                            // Enable autoplay by recreating the iframe with autoplay=1
+                    if (entry.isIntersecting) {
+                        if (entry.target.tagName === 'IFRAME') {
+                            // YouTube iframe
                             const currentSrc = entry.target.src;
                             if (!currentSrc.includes('autoplay=1')) {
                                 entry.target.src = currentSrc.replace('autoplay=0', 'autoplay=1');
                             }
-                        } else {
-                            // Pause when out of view
+                        } else if (entry.target.tagName === 'VIDEO') {
+                            // Demo videos
+                            entry.target.play();
+                        }
+                    } else {
+                        if (entry.target.tagName === 'IFRAME') {
                             const currentSrc = entry.target.src;
                             if (currentSrc.includes('autoplay=1')) {
                                 entry.target.src = currentSrc.replace('autoplay=1', 'autoplay=0');
                             }
+                        } else if (entry.target.tagName === 'VIDEO') {
+                            entry.target.pause();
                         }
                     }
                 });
             }, { threshold: 0.5 });
             
+            // Observe main YouTube video
             const mainVideo = document.getElementById('mainVideo');
             if (mainVideo) observer.observe(mainVideo);
+            
+            // Observe demo videos
+            const demoVideos = document.querySelectorAll('.hover-video');
+            demoVideos.forEach(video => observer.observe(video));
         });
         
         // Hover-to-play functionality for demo videos
